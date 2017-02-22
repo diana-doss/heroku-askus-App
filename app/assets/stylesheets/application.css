@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+body { padding-top: 60px; }
+footer { margin-top: 100px; }
+table, td, th { vertical-align: middle; border: none; }
+th { border-bottom: 1px solid #DDD; }
+
+.navbar {
+      min-height: 38px;
+    background-color: #ef7a82;
+  }
+
+  .navbar a.brand { font-size: 18px; }
+  .navbar a.brand:hover {
+   color: #fff;
+   background-color: #ef7a82;
+   text-decoration: none;
+  }

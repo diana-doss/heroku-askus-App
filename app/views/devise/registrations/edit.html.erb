@@ -1,4 +1,13 @@
 <%= bootstrap_devise_error_messages! %>
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Edit registration', edit_user_registration_path) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Register', new_user_registration_path)  %>
+  </li>
+<% end %>
 <div class="panel panel-default devise-bs">
   <div class="panel-heading">
     <h4><%= t('.title', resource: resource_class.model_name.human , default: "Edit #{resource_name.to_s.humanize}") %></h4>

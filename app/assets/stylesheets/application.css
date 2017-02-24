@@ -21,7 +21,12 @@ th { border-bottom: 1px solid #DDD; }
 
 .navbar {
       min-height: 38px;
-    background-color: #ef7a82;
+
+}
+.navbar-brand {
+    text-align: center;
+}
+    background-color: #000000;
   }
 
   .navbar a.brand { font-size: 18px; }
@@ -30,3 +35,4 @@ th { border-bottom: 1px solid #DDD; }
    background-color: #ef7a82;
    text-decoration: none;
   }
+panel-heading

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Askus</title>
+    <title>Askus</title><b>
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap.css" />
     <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap-theme.css" />
@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="background: #FFEEEF">
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -22,26 +22,23 @@
       </button>
       <a class="navbar-brand" href="/">The askus app</a>
     </div>
-    
+     <div class="navbar-brand">
+  
+     <% if user_signed_in? %>
+  
+   <td><button type="button" class="btn btn-info"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </button></td>
+<% else %>
+
+<% end %>
+</div>
   </div>
 </nav>
  <div class="container">
     <%= yield %>
     <br>
-    <% if user_signed_in? %>
-  
-   <td><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </td>
-<% else %>
-
-<% end %>
+   
   </div>
 
-<footer>
-  <div class="container">
-    Rails Girls Galway 2017
-  </div>
-
-</footer>
 <script src="//railsgirls.com/assets/bootstrap.js"></script>
  </body>
 </html>

@@ -1,6 +1,7 @@
 <h1>Editing Question</h1>
 
 <%= render 'form', question: @question %>
-
-<%= link_to 'Show', @question %> |
-<%= link_to 'Back', questions_path %>
+<button type="button" class="btn btn-primary">
+<%= link_to 'Show', @question %></button> |
+<button type="button" class="btn btn-primary">
+<%= link_to 'Back', questions_path %></button>

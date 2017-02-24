@@ -1,12 +1,15 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
+<div class="alert alert-success" role="alert">
+  <p id="notice"><strong>Well done!</strong> <%= notice %>
+  </p>
+</div>
 
-<h1>Questions</h1>
+<h1>Questions</h1><b>
 
-<table>
-  <thead>
+<table class="table table-striped">
+  <thead class="thead-inverse">
     <tr>
       <th>Question</th>
-      <th>Skills</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,18 +17,20 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= question.question %></td>
-        <td><%= question.skills %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td> <%= question.question %> </td>
+       
+        <td><button type="button" class="btn btn-outline-primary"><%= link_to 'Show', question %></button></td>
+        <td><button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_question_path(question) %></button></td>
+        <td><button type="button" class="btn btn-outline-primary"><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
+      <tr><td><span class="badge badge-default"><%= question.skills %></span></td></tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Question', new_question_path %>
+<button type="button" class="btn btn-primary btn-sm">
+<%= link_to 'New Question', new_question_path %></button>
 
 

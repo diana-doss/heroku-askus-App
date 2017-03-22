@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Askus</title>
+    <title>Askus</title><b>
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap.css" />
     <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap-theme.css" />
@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="background: #FFEEEF">
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -22,9 +22,6 @@
       </button>
       <a class="navbar-brand" href="/">The askus app</a>
     </div>
-
-
-   
 
   <p class="navbar-text pull-right">
    <% if user_signed_in? %>
@@ -50,6 +47,8 @@
 <% end %>
 <%= yield %>
 </div>
+
+
 
 <script src="//railsgirls.com/assets/bootstrap.js"></script>
  </body>

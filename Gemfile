@@ -3,6 +3,11 @@ source 'https://rubygems.org'
 
 gem 'devise'
 gem 'bootstrap-sass'
+gem "rolify"
+gem 'cancancan'
+gem 'acts_as_votable'
+gem "ckeditor"
+
 
 gem 'devise-bootstrap-views'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -1,15 +1,17 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-
+  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
   # GET /questions
   # GET /questions.json
   def index
     @questions = Question.all
+    # acts_as_votable
   end
 
   # GET /questions/1
   # GET /questions/1.json
   def show
+
   end
 
   # GET /questions/new
@@ -24,6 +26,8 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
+    p 'question_paramsr'
+    p question_params
     @question = Question.new(question_params)
 
     respond_to do |format|
@@ -61,6 +65,21 @@ class QuestionsController < ApplicationController
     end
   end
 
+
+ def upvote
+    @question = Question.find(params[:id])
+    # @question.votes.create
+    # @question.liked_by current_user
+     respond_to do |format|
+      format.html { redirect_to question_url, notice: 'voted successfully'}
+      format.json { head :no_content }
+
+    end
+  end
+  
+ 
+ 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
@@ -69,6 +88,8 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:question, :skills)
+      params.require(:question).permit(:question, :skills, :description)
     end
+
+
 end

@@ -1,19 +1,29 @@
 Rails.application.routes.draw do
 
   
+
   devise_for :users
 
-	devise_scope :user do
-	  authenticated :user do
-	    root 'questions#index', as: :authenticated_root
-	  end
+  devise_scope :user do
+    authenticated :user do
+      root 'questions#index', as: :authenticated_root
+    end
 
-	  unauthenticated do
-	    root 'devise/sessions#new', as: :unauthenticated_root
-	  end
-	end
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
 
-  resources :questions
+  resources :questions do
+    member do 
+          post 'upvote'
+        end
+   resources :answers
+end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # member do
+  #   put "like", to: "questions#upvote"
+  #   put "dislike", to: "questions#downvote"
+  # end
+
 end

@@ -1,0 +1,11 @@
+<p>
+  <strong>Answer:</strong>
+  <%= answer.answer %>
+</p>
+
+
+<p>
+  <button type="button" class="btn btn-outline-primary"><b><%= link_to 'Destroy Answer', [answer.question, answer],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %></button>
+</p>

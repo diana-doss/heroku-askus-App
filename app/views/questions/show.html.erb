@@ -1,26 +1,53 @@
-<p>
-  <strong>Question:</strong>
-  <%= @question.question %>
-</p>
+<script type="text/javascript">
+      function showAnswer(){
+        var x = document.getElementById('AnswerDiv');
+        if (x.style.display === 'none') {
+            x.style.display = 'block';
+        } else {
+            x.style.display = 'none';
+        }
+      }
+    </script>
 
-<p>
-  <strong>Description:</strong>
-  <%= @question.description %>
-</p>
-
-<p>
-  <strong>Skills:</strong>
-  <%= @question.skills %>
-</p>
-
-<h2>Answers</h2>
-<%= render @question.answers %>
-
-<h2>Add a answer:</h2>
-<%= render 'answers/form' %>
-
-
-
-<button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_question_path(@question) %></button> |
-<button type="button" class="btn btn-outline-primary"><%= link_to 'Back', questions_path %></button>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <span style="text-size:15px;font-weight:bold"><%= @question.question %></span>
+        <hr style="maring-left:20px;">
+      </div>
+    </div>
+    <div class="row">
+    <div class="col-sm-1">
+      
+      <div class="up_vote pull-right">
+        <i class="glyphicon glyphicon-triangle-top"></i>
+      </div><br>
+      <div class="down_vote pull-right">
+        <i class="glyphicon glyphicon-triangle-bottom"></i>
+    </div>
+    </div>
+    <div class="col-sm-6">
+      <span><%= @question.description %></span>
+      <br>
+      <br>
+      <%- if @question.try(:skills).present? %>
+            <% eval(@question.skills).each do |skill| %>
+            
+              <span class="label label-primary"><%= skill %></span>
+            <% end %>
+      <% end %>
+      <!-- <span class="label label-default"><%= @question.skills.gsub(/[^0-9a-z ]/i,'') %> </span> -->
+      <!-- <span class="label label-default">Apache</span><br> -->
+      <button class="btn btn-sm btn-primary pull-right" style="margin-top:10px;" id="answer_button" onclick="showAnswer()">Answer</button>
+    </div>
+  </div>
+  <div class="row" id="AnswerDiv" style="display:none">
+    <div class="col-sm-6">
+      <h5>Your Answer</h5>
+      <textarea rows="5" cols="50"></textarea><br><br>
+      <button class="btn btn-sm btn-success">Submit</button>
+    </div>
+  </div>
+  <hr>
+</div>
 

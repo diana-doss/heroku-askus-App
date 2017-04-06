@@ -1,4 +1,5 @@
 class Question < ApplicationRecord 
+	  belongs_to :user
       acts_as_votable
 
 	 validates_presence_of :question
@@ -12,6 +13,10 @@ class Question < ApplicationRecord
  has_many :votes
  #     validates :description, presence: true,
  #                    length: { minimum: 5 }
+
+ def votes_count
+ 	self.get_upvotes.size - self.get_downvotes.size
+ end
 
 end
  

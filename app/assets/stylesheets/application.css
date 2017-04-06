@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *=  require token-input
  */
 
 body { padding-top: 60px; }
@@ -21,10 +22,17 @@ th { border-bottom: 1px solid #DDD; }
 
 .navbar {
       min-height: 38px;
+      background: #10897D;
+
+}
+.btn-primary{
+  color: #FFFFFF !important;
 
 }
 .navbar-brand {
     text-align: center;
+    color: #FFFFFF !important;
+
 }
     background-color: #000000;
   }
@@ -35,4 +43,78 @@ th { border-bottom: 1px solid #DDD; }
    background-color: #ef7a82;
    text-decoration: none;
   }
+  .navbar-text{
+    color: #FFFFFF !important;
+
+  }
+  .question_number{
+    font-size: 10px;
+    font-weight: normal;
+  }
+  .description{
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .notbold{
+    font-weight:normal;
+    font-size: 14px;
+}
+.glyphicon.glyphicon-triangle-bottom {
+    font-size: 14px;
+}
+.glyphicon.glyphicon-triangle-top {
+    font-size: 14px;
+}
+
 panel-heading
+votes
+
+a:link {
+    color: #000099;
+}
+
+/* visited link */
+a:visited {
+    color: #000099;
+}
+
+/* mouse over link */
+a:hover {
+    color: #000000;
+    font-weight:800;
+    background-color: #FFFFFF
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+a {
+  color:#000099;
+    text-decoration:none;
+}
+
+
+.questions {
+    padding: 15px;
+    margin-left:30px;
+    font-family: "Times New Roman", Georgia, Serif;
+    font-size:20px;
+}
+.answer {
+  margin-left:45px;
+    font-family: "Times New Roman", Georgia, Serif;
+     font-size:16px;
+}
+.user {
+    float:right;
+    width:200px;
+    height:30px;
+   
+}
+.border {
+  border-top: 1px solid grey;
+    display:block;
+    margin-top:50px;
+}

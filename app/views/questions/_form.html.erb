@@ -26,7 +26,8 @@
 
   <div class="field">
     <%= f.label :skills %>
-    <%= f.text_field :skills %>
+  <!--   <%= f.text_field :skills, 'data-tokeninput' => { collection: [{id: 'Java', name: 'Java'}, {id: 'RoR', name: 'Ruby on Rails'}] }.to_json %> -->
+  <%= f.text_field :skills, 'data-tokeninput' => Skill.all_skills %>
   </div>
 
 

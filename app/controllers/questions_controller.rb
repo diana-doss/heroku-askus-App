@@ -26,17 +26,17 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    p 'question_paramsr'
+    p '111111'
     p question_params
     @question = Question.new(question_params)
 
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render :show, status: :created, location: @question }
+        # format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
+        # format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -50,7 +50,7 @@ class QuestionsController < ApplicationController
         format.json { render :show, status: :ok, location: @question }
       else
         format.html { render :edit }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
+        # format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -66,19 +66,29 @@ class QuestionsController < ApplicationController
   end
 
 
- def upvote
-    @question = Question.find(params[:id])
-    # @question.votes.create
-    # @question.liked_by current_user
-     respond_to do |format|
-      format.html { redirect_to question_url, notice: 'voted successfully'}
-      format.json { head :no_content }
+ # def upvote
+ #    @question = Question.find(params[:id])
+ #    # @question.votes.create
+ #    # @question.liked_by current_user
+ #     respond_to do |format|
+ #      format.html { redirect_to question_url, notice: 'voted successfully'}
+ #      format.json { head :no_content }
 
-    end
-  end
+ #    end
+ #  end
   
+  def upvote 
+  @question = Question.find(params[:id])
+  @question.upvote_by current_user
+  redirect_to :back
+  end  
  
  
+def downvote
+  @question = Question.find(params[:id])
+  @question.downvote_by current_user
+  redirect_to :back
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -88,7 +98,7 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:question, :skills, :description)
+      params.require(:question).permit(:question, :description, :skills => [], )
     end
 
 

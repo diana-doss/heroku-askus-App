@@ -21,7 +21,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand">The askus app</a>
+      <a class="navbar-brand" href="#" >The askus app</a>
     </div>
 
   <p class="navbar-text pull-right">
@@ -29,7 +29,7 @@
     Logged in as <strong><%= current_user.email %></strong>
 
 
-    <td><button type="button" class="btn btn-outline-primary"><b><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></b> </button></td>
+    <td><button type="button" class="btn btn-primary"><b><%= link_to('Logout', destroy_user_session_path,class: 'btn btn-outline-danger', :method => :delete) %></b> </button></td>
     
     <% else %>
   <% end %>

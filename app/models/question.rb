@@ -1,4 +1,5 @@
 class Question < ApplicationRecord 
+	 has_many :replies, dependent: :destroy
 	  belongs_to :user
       acts_as_votable
 
@@ -6,7 +7,7 @@ class Question < ApplicationRecord
 	 validates_presence_of :description
      validates_presence_of :skills
 
-	 	 has_many :answers, dependent: :destroy
+	 	
   # validates :title, presence: true,
   #                   length: { minimum: 5 }
 

@@ -1,0 +1,39 @@
+
+<div class="row">
+    <div class="container">
+      <h4>Answers</h4>
+    </div>
+  </div><br>
+  <div class="row">
+  <div class="col-sm-1">
+    <div class="up_vote pull-right">
+      <i class="glyphicon glyphicon-triangle-top"></i>
+    </div><br>
+    <div class="question_number pull-right">
+      <span>10</span>
+    </div><br>
+    <div class="down_vote pull-right">
+      <i class="glyphicon glyphicon-triangle-bottom"></i>
+  </div>
+  </div>
+  <div class="col-sm-6">
+    <%= reply.description %>
+    <div class="row">
+        <button class="btn btn-sm btn-primary pull-right">Reply</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- <p>
+  <strong>description:</strong>
+  
+</p>
+  -->
+
+<p>
+  <%= link_to 'Destroy reply', [reply.question, reply],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+

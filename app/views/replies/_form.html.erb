@@ -1,0 +1,11 @@
+<%= form_for([@question, @question.replies.build]) do |f| %>
+ <div class="col-sm-6">
+      <h5>Your Answer</h5>
+       <%= f.label :Answer %><br>
+     <%= f.text_area :answer, :rows => 5, :cols => 50 %>
+      <%= f.submit 'Post Answer', :class => 'btn btn-success' %>
+    </div>
+  </div>
+  <hr>
+<% end %>
+

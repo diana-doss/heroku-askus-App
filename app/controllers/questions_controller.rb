@@ -50,7 +50,7 @@ class QuestionsController < ApplicationController
         format.json { render :show, status: :ok, location: @question }
       else
         format.html { render :edit }
-        # format.json { render json: @question.errors, status: :unprocessable_entity }
+        format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
   end

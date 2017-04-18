@@ -63,8 +63,12 @@
       <button class="btn btn-sm btn-primary pull-right" style="margin-top:10px;" id="answer_button" onclick="showAnswer()">Answer</button>
     </div>
     <div class="col-sm-2">
-      <button class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-edit"></i></button>
-      <button class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
+       <%= link_to edit_question_path(@question), class: "btn btn-primary" do %>
+    <i class="glyphicon glyphicon-edit"></i> edit
+    <% end %>
+     <%= link_to @question, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" do %>
+      <i class="glyphicon glyphicon-trash"></i>
+    <% end %>
     </div>
     </div>
     <div class="row" id="AnswerDiv" style="display:none">

@@ -30,6 +30,7 @@ th { border-bottom: 1px solid #DDD; }
 
 }
 .navbar-brand {
+  margin-top: 10px;
     text-align: center;
     color: #FFFFFF !important;
 

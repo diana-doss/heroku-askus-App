@@ -30,12 +30,11 @@ th { border-bottom: 1px solid #DDD; }
 
 }
 .navbar-brand {
+  margin-top: 10px;
     text-align: center;
     color: #FFFFFF !important;
 
 }
-    background-color: #000000;
-  }
 
   .navbar a.brand { font-size: 18px; }
   .navbar a.brand:hover {
@@ -95,7 +94,12 @@ a {
     text-decoration:none;
 }
 
-
+.notbold_date{
+    font-weight:bold;
+    font-size: 9px;
+    color: #000000;
+    background-color: #bcef7a;
+}
 .questions {
     padding: 15px;
     margin-left:30px;

@@ -1,4 +1,5 @@
 class Question < ApplicationRecord 
+	resourcify
 	 has_many :replies, dependent: :destroy
 	  belongs_to :user
       acts_as_votable

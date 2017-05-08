@@ -46,10 +46,10 @@
         <div class="col-sm-3">
         </div>
         <div class="col-sm-2">
-          <img src="/assets/users.png" class="img img-responsive" />
+          <img src="/assets/users.png"  class="img img-responsive" />
         </div>
         <div class="col-sm-6">
-          <span class='notbold_date' ><%=ActiveSupport::TimeZone["Chennai"].parse(@question.updated_at.to_s).strftime("%d %b %Y %l:%M %p")  %></span>
+          <span class='notbold_date' ><%= ActiveSupport::TimeZone["Chennai"].parse(@question.updated_at.to_s).strftime("%d %b %Y %l:%M %p") %></span>
         </div>
 
       </div><br><br><hr>
@@ -63,15 +63,14 @@
       <button class="btn btn-sm btn-primary pull-right" style="margin-top:10px;" id="answer_button" onclick="showAnswer()">Answer</button>
     </div>
     <div class="col-sm-2">
-      <% if current_user.has_role? :admin %>
-       <%= link_to edit_question_path(@question), class: "btn btn-primary" do %>
-    <i class="glyphicon glyphicon-edit"></i> edit
+     <% if current_user.has_role? :admin %>
+         <%= link_to edit_question_path(@question), class: "btn btn-primary" do %>
+     <i class="glyphicon glyphicon-edit"></i> edit
+         <% end %>
+         <%= link_to @question, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"  do %>
+       <i class="glyphicon glyphicon-trash"></i>
+          <% end %>
     <% end %>
-     <%= link_to @question, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" do %>
-      <i class="glyphicon glyphicon-trash"></i>
-    <% end %>
-    <% end %>
-    
     </div>
     </div>
     <div class="row" id="AnswerDiv" style="display:none">
@@ -118,7 +117,20 @@
       <div class="row">
           <button class="btn btn-sm btn-primary pull-right">Reply</button>
       </div>
+       <div class="col-sm-9 pull-right">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-2">
+          <img src="/assets/users.png"  class="img img-responsive" />
+        </div>
+        <div class="col-sm-6">
+          <span class='notbold_date' ><%= ActiveSupport::TimeZone["Chennai"].parse(@question.replies.try(:created_at).to_s)%></span>
+        </div>
+
+      </div><br><br><hr>
     </div>
+  
+
   </div>
   <hr>
   <% end -%>

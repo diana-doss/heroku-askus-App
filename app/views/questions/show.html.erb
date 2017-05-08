@@ -49,7 +49,7 @@
           <img src="http://placehold.it/50x50" class="img img-responsive" />
         </div>
         <div class="col-sm-6">
-          <span class='notbold' ><%= @question.updated_at %></span>
+          <span class='notbold_date' ><%=ActiveSupport::TimeZone["Chennai"].parse(@question.updated_at.to_s).strftime("%d %b %Y %l:%M %p")  %></span>
         </div>
 
       </div><br><br><hr>

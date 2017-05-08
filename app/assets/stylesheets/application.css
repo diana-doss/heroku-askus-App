@@ -94,7 +94,12 @@ a {
     text-decoration:none;
 }
 
-
+.notbold_date{
+    font-weight:bold;
+    font-size: 9px;
+    color: #000000;
+    background-color: #bcef7a;
+}
 .questions {
     padding: 15px;
     margin-left:30px;
